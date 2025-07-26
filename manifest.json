@@ -1,15 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "Network Logger",
+  "name": "Full Network Logger",
   "version": "1.0",
-  "description": "Capture fetch requests and responses.",
-  "permissions": ["storage", "scripting", "activeTab"],
+  "description": "Capture all network requests, bodies, and visualize them.",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>"
+  ],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
-  },
-  "action": {
-    "default_popup": "popup.html"
   },
   "content_scripts": [
     {
@@ -17,5 +19,8 @@
       "js": ["content.js"],
       "run_at": "document_start"
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }

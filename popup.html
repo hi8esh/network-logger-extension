@@ -7,7 +7,25 @@
   <script src="popup.js" defer></script>
 </head>
 <body>
-  <h2>AJAX Network Logs</h2>
+  <h2>Network Logs</h2>
+
+  <div id="controls">
+    <input type="text" id="filterUrl" placeholder="Filter by URL">
+    <select id="filterMethod">
+      <option value="">All Methods</option>
+      <option value="GET">GET</option>
+      <option value="POST">POST</option>
+      <option value="PUT">PUT</option>
+      <option value="DELETE">DELETE</option>
+    </select>
+    <input type="number" id="filterStatus" placeholder="Status">
+    <button id="harExportBtn">Export HAR</button>
+    <button id="clearBtn">Clear Logs</button>
+  </div>
+
   <div id="logs">Loading...</div>
+
+  <h3>Timeline View</h3>
+  <div id="timelineContainer"></div>
 </body>
 </html>
